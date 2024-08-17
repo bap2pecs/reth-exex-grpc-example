@@ -1,0 +1,26 @@
+[package]
+name = "reth"
+version = "0.0.0"
+publish = false
+edition = "2021"
+license = "MIT OR Apache-2.0"
+
+[dependencies]
+reth = { git = "https://github.com/paradigmxyz/reth", version = "1.0.4" }
+reth-exex = { git = "https://github.com/paradigmxyz/reth", features = ["serde"], version = "1.0.4" }
+reth-node-api = { git = "https://github.com/paradigmxyz/reth", version = "1.0.4" }
+reth-node-ethereum = { git = "https://github.com/paradigmxyz/reth", version = "1.0.4" }
+reth-tracing = { git = "https://github.com/paradigmxyz/reth", version = "1.0.4" }
+reth-execution-types = { git = "https://github.com/paradigmxyz/reth", version = "1.0.4" }
+
+eyre = "0.6"
+futures = "0.3"
+tonic = "0.12"
+prost = "0.13"
+tokio = { version = "1.0", features = ["full"] }
+
+[dev-dependencies]
+reth-exex-test-utils = { git = "https://github.com/paradigmxyz/reth" }
+
+[build-dependencies]
+tonic-build = "0.12"

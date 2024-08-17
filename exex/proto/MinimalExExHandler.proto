@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package exex;
+
+// Service definition
+service ExExHandler {
+  rpc HandleChainCommitted (ChainCommittedRequest) returns (HandlerResponse);
+  rpc HandleChainReorged (ChainReorgedRequest) returns (HandlerResponse);
+  rpc HandleChainReverted (ChainRevertedRequest) returns (HandlerResponse);
+}
+
+// Request messages
+message ChainCommittedRequest {
+  uint64 start_block = 1;
+  uint64 end_block = 2;
+}
+
+message ChainReorgedRequest {
+  uint64 old_start_block = 1;
+  uint64 old_end_block = 2;
+  uint64 new_start_block = 3;
+  uint64 new_end_block = 4;
+}
+
+message ChainRevertedRequest {
+  uint64 start_block = 1;
+  uint64 end_block = 2;
+}
+
+// Response message
+message HandlerResponse {
+  bool send_finished_height_event = 1;
+  uint64 finished_height = 2;
+}
