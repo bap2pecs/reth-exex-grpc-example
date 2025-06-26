@@ -1,3 +1,9 @@
+## Context
+
+This is a PoC to build Reth ExEx that can depend on:
+- ANY external systems
+- writing in ANY language
+
 # How to run the demo
 
 ```bash
